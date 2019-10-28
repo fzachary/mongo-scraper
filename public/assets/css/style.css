@@ -1,0 +1,12 @@
+nav {
+    background-color: #344955;
+}
+
+a.btn-large {
+    background-color: #F9AA33;
+    color: #232F34;
+}
+
+a.btn-large:hover {
+    color: white;
+}
