@@ -2,12 +2,12 @@
     <div class="nav-wrapper container">
         <a href="/" class="brand-logo left">Mongo Scraper</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="waves-effect waves-light btn">Scrape Articles</a></li>
-            <li><a class="waves-effect waves-light btn">Clear Articles</a></li>
+            <li><a class="waves-effect waves-light btn scrape-new">Scrape Articles</a></li>
+            <li><a class="waves-effect waves-light btn clear">Clear Articles</a></li>
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/saved">Saved Articles</a></li>
+            <li class="{{#if home}}active{{/if}}"><a href="/">Home</a></li>
+            <li class="{{#if saved}}active{{/if}}"><a href="/saved">Saved Articles</a></li>
         </ul>
     </div>
 </nav>

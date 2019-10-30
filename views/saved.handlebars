@@ -1,0 +1,44 @@
+{{> nav/nav-block saved=true}}
+
+<main>
+    <div id="index-banner" class="parallax-container">
+        <div class="overlay">
+        </div>
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br>
+                <br>
+                <h1 class="caption">Saved Articles</h1>
+                <h5 class="caption header col s12">MONGO DB SCRAPER</h5>
+                <br>
+                <br>
+            </div>
+        </div>
+        <div class="parallax">
+            <img src="/assets/img/newspaper.jpg" alt="Unsplashed background img 1" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+    <div class="article-container">
+        <div class="row">
+            <div class="alert-warning">
+                <h4>Uh Oh. Looks like there are no saved articles.</h4>
+            </div>
+            <div class="card">
+                <span class="card-title card-header"><h3>Would you like to browse available articles?</h3></span>
+                <div class="card-action">
+                    <a href="/" class="waves-effect waves-light btn">Browse Articles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{{> footer/footer}}
+
+
+<script>
+    $(document).ready(function() {
+        $('.parallax').parallax();
+    });
+</script>
+
