@@ -19,26 +19,27 @@
         </div>
     </div>
     <div class="article-container">
-        <div class="row">
-            <div class="alert-warning">
-                <h4>Uh Oh. Looks like there are no saved articles.</h4>
-            </div>
-            <div class="card">
-                <span class="card-title card-header"><h3>Would you like to browse available articles?</h3></span>
-                <div class="card-action">
-                    <a href="/" class="waves-effect waves-light btn">Browse Articles</a>
-                </div>
-            </div>
-        </div>
     </div>
 </main>
 
 {{> footer/footer}}
 
 
+{{!-- JQuery --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+{{!-- Materialize JS --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+{{!-- JS for Parallax --}}
 <script>
     $(document).ready(function() {
         $('.parallax').parallax();
     });
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.2/bootbox.min.js"></script>
+
+{{!-- Local JS file --}}
+<script src="/assets/js/saved.js"></script>
 
