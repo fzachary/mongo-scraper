@@ -1,7 +1,7 @@
 // REQUIRE MONGOOSE
 const mongoose = require("mongoose");
 
-// Get the SCHEMA CONSTRUCTOR
+// Save a reference to the Scheam constructor
 const Schema = mongoose.Schema;
 
 // Use the constructor to create a new ARTICLE OBJECT
@@ -15,13 +15,17 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
-    summary: {
-        type: String,
-        required: false
+    // summary: {
+    //     type: String,
+    //     required: false
+    // }
+    note: {
+        type: Schema.Types.ObjectId,
+        ref: "Note"
     }
 });
 
-// Create model from the Schema using the model method
+// This creates our model from the above schema, using mongoose's model method
 var Article = mongoose.model("Article", ArticleSchema);
 
 // Export the model
