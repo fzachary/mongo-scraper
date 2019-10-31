@@ -2,13 +2,39 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
+const axios = require("axios");
+const cheerio = require("cheerio");
 // Path for Development
 const path = require("path");
+
+// TEST FOR AXIOS
+axios.get("https://www.nytimes.com/").then(function (response) {
+  
+  var $ = cheerio.load(response.data);
+
+  // console.log($);
+
+  var links = [];
+  var titles = [];
+  var summaries = [];
+
+  var listItems = $("article").each((i, element) => {
+    links.push("https://nytimes.com" + $(element).find("a").attr("href"));
+    titles.push($(element).find("h2").text());
+    summaries.push($(element).find("p").text());
+  });
+
+  // console.log(listItems);
+  console.log(links);
+  console.log(titles);
+  console.log(summaries);
+})
+
 
 // DATABASE/MONGOOSE
 // Require the model for accessing the "article" collection
 // const db = require("./models");
-// mongoose.connect("mongodb://localhost/mongo-scraper", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/mongo-scraper", { useNewUrlParser: true });
 
 // EXPRESS & PORT
 const app = express();

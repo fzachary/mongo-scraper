@@ -52,12 +52,12 @@ p {
 #index-banner.parallax-container {
   position: relative;
   width: 100%;
-  height: 550px;
-  min-height: 550px;
+  height: 500px;
+  min-height: 500px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
-
+  margin-bottom: 2rem;
 }
 
 .parallax-container .section {
