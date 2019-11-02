@@ -103,6 +103,11 @@ p {
   box-shadow: 3px 3px 20px lightslategray;
   margin: 20px 0;
   position: relative;
+  text-align: center;
+}
+
+.card-content{
+  padding: 12px;
 }
 
 .card-header {
@@ -113,9 +118,28 @@ p {
   margin-bottom: 0;
 }
 
+.card-title {
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+
+.card-title h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 .card-action {
   font-size: 16px;
   text-align: center;
+}
+
+.article-summary {
+  font-size: 15px;
 }
 
 .scrape-new {

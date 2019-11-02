@@ -6,22 +6,42 @@ const Schema = mongoose.Schema;
 
 // Use the constructor to create a new ARTICLE OBJECT
 const ArticleSchema = new Schema({
-    title: {
+    pkey: {
         type: String,
-        required: true,
         unique: true
+    },
+    headline: {
+        type: String,
+        require: true,
+        unique: false,
+        sparse: true
+    },
+    summary: {
+        type: String,
+        required: false,
+        unique: false,
+        sparse: true
     },
     link: {
         type: String,
-        required: true
+        required: true,
+        unique: false
     },
-    // summary: {
-    //     type: String,
-    //     required: false
-    // }
-    note: {
+    notes: [{
+        body: String,
+        date: Date,
         type: Schema.Types.ObjectId,
         ref: "Note"
+    }],
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    saved: {
+        type: Boolean,
+        default: false,
+        required: false,
+        unique: false
     }
 });
 
