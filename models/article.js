@@ -1,47 +1,24 @@
 // REQUIRE MONGOOSE
 const mongoose = require("mongoose");
 
-// Save a reference to the Scheam constructor
+// Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
 // Use the constructor to create a new ARTICLE OBJECT
 const ArticleSchema = new Schema({
-    pkey: {
-        type: String,
-        unique: true
-    },
     headline: {
         type: String,
         require: true,
         unique: false,
-        sparse: true
     },
     summary: {
         type: String,
-        required: false,
-        unique: false,
-        sparse: true
+        required: true
     },
-    link: {
-        type: String,
-        required: true,
-        unique: false
-    },
-    notes: [{
-        body: String,
-        date: Date,
-        type: Schema.Types.ObjectId,
-        ref: "Note"
-    }],
-    date: {
-        type: Date,
-        default: Date.now
-    },
+    date: String,
     saved: {
         type: Boolean,
-        default: false,
-        required: false,
-        unique: false
+        default: false
     }
 });
 
