@@ -8,8 +8,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://<dbuser>:<dbpassword>@
 
 // DATABASE
 // Connect to the Mongo DB
-mongoose.set('useFindAndModify', false);
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
     .then(function() {
         console.log("Database connected");
     })
