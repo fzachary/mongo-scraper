@@ -42,5 +42,3 @@ app.use(require('./routes/htmlRoutes')(db));
 app.listen(PORT, function() {
     console.log(`App running at http://localhost:${PORT}`);
 });
-
-module.exports = app;
