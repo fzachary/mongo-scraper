@@ -3,12 +3,12 @@ const express = require('express');
 const logger = require('morgan'); 
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
-const db = require('./models/index');
+const db = require('./models');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:mongoscraper';
 
 // DATABASE
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // EXPRESS & PORT
 const app = express();
