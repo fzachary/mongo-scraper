@@ -1,5 +1,5 @@
 // DEPENDENCIES
-const Note = require('../models/Note');
+const Note = require('../models/note');
 const createDate = require('../scripts/date');
 
 module.exports = db => {

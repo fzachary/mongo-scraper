@@ -3,8 +3,8 @@ const scrapeArticles = require('../scripts/scrape');
 const createDate = require('../scripts/date');
 
 // REQUIRE our models
-const Article = require('../models/Article');
-const Note = require('../models/Note');
+const Article = require('../models/article');
+const Note = require('../models/note');
 
 module.exports = db => {
 

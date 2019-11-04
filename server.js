@@ -3,8 +3,8 @@ const express = require('express');
 const logger = require('morgan'); 
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
-const Article = require('./models/Article');
-const Note = require('./models/Note');
+const Article = require('./models/article');
+const Note = require('./models/note');
 const db = require('./models');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:mongoscraper';
 
