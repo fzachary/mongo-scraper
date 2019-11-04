@@ -4,11 +4,11 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const db = require('./models');
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://<dbuser>:<dbpassword>@ds141178.mlab.com:41178/heroku_04p91zg0';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://user:abcd1234@ds141178.mlab.com:41178/heroku_04p91zg0';
 
 // DATABASE
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, { useMongoClient: true })
     .then(function() {
         console.log("Database connected");
     })
