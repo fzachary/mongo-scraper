@@ -4,7 +4,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const db = require('./models');
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongoscraper';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://<dbuser>:<dbpassword>@ds141178.mlab.com:41178/heroku_04p91zg0';
 
 // DATABASE
 // Connect to the Mongo DB
