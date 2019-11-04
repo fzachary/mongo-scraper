@@ -8,8 +8,11 @@ const Schema = mongoose.Schema;
 const ArticleSchema = new Schema({
     headline: {
         type: String,
-        require: true,
-        unique: false,
+        required: true,
+    },
+    url: {
+        type: String,
+        required: true
     },
     summary: {
         type: String,

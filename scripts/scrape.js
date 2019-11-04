@@ -13,19 +13,20 @@ var scrapeArticles = function (callback) {
         let articles = [];
 
         // Now, we grab the articles
-        $('article').each(function(i, element) {
+        $('article h2').each(function(i, element) {
 
             // Save the result in an empty object
             let result = {};
             // Add the text and href of every link, and summary and byline, saving them to the object
-            result.headline = $(element).children('h2').text().trim();
-            result.summary = $(element).children('p').text().trim();
+            result.headline = $(element).text().trim();
+            result.summary = $(element).parents().siblings('p').text().trim();
+            result.url = "https://www.nytimes.com" + $(element).parents("a").attr("href");
             console.log(result);
 
             articles.push(result);
         });
         callback(articles);
     });
-}
+};
 
 module.exports = scrapeArticles;

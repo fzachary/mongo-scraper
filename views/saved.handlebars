@@ -19,52 +19,32 @@
         </div>
     </div>
     <div class="article-container">
-        {{#if articles}}
-        {{#each articles}}
-            <div class="card" data-_id={{_id}}>
-                <div class="card-content">
-                    <span class="card-title">
-                        <h3>
-                            <a class="article-link" target="_blank" rel="noopener noreferrer" href={{link}}>
-                                {{headline}}
-                            </a>
-                        </h3>
-                        <p class="article-summary">{{summary}}</p>
-                    </span>
-                    <a class="waves-effect waves-light btn unsave-article" data-_id={{_id}}>Remove from Saved</a>
-                    <a class="waves-effect waves-light btn notes" href="#modal{{_id}}" data-_id={{_id}}>Article Notes</a>
-                </div>
-            </div>
-        {{/each}}
-        {{else}}
-            <div class='row'>
-                <div class='alert-warning'>
-                    <h4>Uh Oh. Looks like you haven't saved any articles</h4>
-                </div>
-                <div class='card'>
-                    <span class='card-title card-header'>
-                        <h3>What would you like to do?</h3>
-                    </span>
-                    <div class='card-action'>
-                        <a class='waves-effect waves-light btn' href="/">Browse Articles</a>
+        <div class="bootbox modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true" style="margin-top: -10px;">×</button>
+                        <div class="bootbox-body">
+                            <div class="container-fluid text-center">
+                                <h4>Notes For Article: 5dbf4a0b12e20b00159a656b</h4>
+                                <hr>
+                                <ul class="list-group note-container">
+                                    <li class="list-group-item note">
+                                        <button class="btn btn-danger note-delete">x</button>
+                                    </li>
+                                </ul>
+                                <textarea placeholder="New Note" rows="4" cols="60"></textarea>
+                                <button class="btn btn-success save">Save Note</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        {{/if}}
-    </div>
+        </div>
+    </div>        
 </main>
-<div id="modal{{_id}}" class="modal">
-    <div class="modal-content">
-        <h4>Notes for Article {{_id}}</h4>
-        <hr>
-        <ul class="list-group note-container">
-        </ul>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save Note</a>
-    </div>
 
-</div>
+
 
 {{> footer/footer}}
 
@@ -75,18 +55,12 @@
 {{!-- Materialize JS --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.2/bootbox.min.js"></script>
 
 {{!-- JS for Parallax --}}
 <script>
     $(document).ready(function() {
         $('.parallax').parallax();
     });
-
-    $(document).ready(function() {
-        $('.modal').modal();
-    });
-
 </script>
 
 

@@ -1,91 +1,71 @@
-// DEPENDENCIES
-const scrapeArticles = require('../scripts/scrape');
+// DEPENDENCIES ==========================
+const router = require('express').Router();
 
-// CONTROLLERS
-const articlesController = require('../controllers/articles');
-const notesController = require('../controllers/notes');
+// ROUTES ================================
+module.exports = db => {
 
-module.exports = function (router) {
+    const ArticlesController = require('../controllers/articles')(db);
+    const NotesController = require('../controllers/notes')(db);   
 
-    // ROUTE to scrape the articles
-    router.get('/api/fetch', (req, res) => {
-        articlesController.fetchArticles(function(err, articles) {
-            if(!articles || articles.insertedCount === 0) {
-                res.json({ message: "no new articles" });
+    // App
+    router.get('/api/fetch', function(req, res) {
+        ArticlesController.fetchArticles(function(err, articles) {
+            if (!articles || articles.insertedCount === 0) {
+                res.json({
+                    message: "No new articles!"
+                });
             }
             else {
-                res.json({ message: `Added ${articles.insertedCount} new articles` });
+                res.json({
+                    message: `Added ${articles.insertedCount} new articles!`
+                });
             }
         });
     });
-    router.get("/api/articles", function (req, res) {
-        let query = {};
-
+    router.get('/api/articles', function(req, res) {
+        var query = {};
         if (req.query.saved) {
-            query = req.query
+            query = req.query;
+        } else {
+            query = req.query;
         }
-
-        articlesController.getArticles(query, function(articles) {
+        
+        ArticlesController.getArticles(query, function(articles) {
             res.json(articles);
         });
     });
-    router.delete("/api/articles/:id", function(req, res) {
-        let query = {};
+    router.patch('/api/articles/:id', function(req, res) {
+        var query = {};
         query._id = req.params.id;
-        articlesController.deleteArticles(query, function(err, article) {
-            res.json(article);
-        });
-    });
-    router.patch("/api/articles", function(req, res) {
-        articlesController.updateArticles(req.body, function(err, articles) {
+        ArticlesController.updateArticles(req.body, function(err, articles) {
             res.json(articles);
         });
     });
-    router.get("/api/notes/:_articleId?", function(req, res) {
-        let query = {};
+    router.get('/api/notes:_articleId?', function(req, res) {
+        var query = {};
         if (req.params._articleId) {
             query._id = req.params._articleId;
         }
 
-        notesController.getNote(query, function(err, note) {
+        NotesController.getNote(query, function(err, note) {
             res.json(note);
         });
     });
-    router.delete("/api/notes/:id", function(req, res) {
-        let query = {};
+    router.delete('/api/notes/:id', function(req, res) {
+        var query = {};
         query._id = req.params.id;
-        notesController.deleteNote(query, function(err, note) {
+        NotesController.deleteNote(query, function(err, note) {
             res.json(note);
         });
     });
-    router.post("/api/notes", function(req, res) {
-        notesController.saveNote(req.body, function(note) {
+    router.post('/api/notes/', function(req, res) {
+        NotesController.saveNote(req.body, function(note) {
             res.json(note);
         });
     });
-}
+    router.delete('/api/clear', function(req, res) {
+        ArticlesController.deleteArticles();
+    });
 
-
-
-
-// // DEPENDENCIES ==========================
-// const router = require('express').Router();
-
-
-// // ROUTES ================================
-// module.exports = (app, db) => {
-    
-//     const AppController = require('../controllers/appController')(db);
-
-//     // App
-//     app.get('/api/articles?saved=false', AppController.getArticles);
-//     app.get('/api/fetch', AppController.scrapeArticles);
-//     app.post('/api/notes/:id', AppController.postNote);
-//     app.get('/api/articles/:id', AppController.getArticleNotes);
-//     app.delete('/note:id', AppController.deleteNote);
-//     app.put('/api/remove/:id', AppController.unsaveArticle);
-//     app.get('/api/articles?saved=true', AppController.getSavedArticles);
-//     app.put('/api/save/:id', AppController.saveArticle);
-
-//     return router;
-// };
+    return router;
+};

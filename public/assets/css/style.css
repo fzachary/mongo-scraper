@@ -107,7 +107,7 @@ p {
 }
 
 .card-content{
-  padding: 12px;
+  padding: 12px !important;
 }
 
 .card-header {
@@ -128,14 +128,19 @@ p {
 }
 
 .card-title h3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0;
   font-size: 20px;
+  line-height: 45px;
 }
 
 .card-action {
   font-size: 16px;
   text-align: center;
+}
+
+.card .btn {
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .article-summary {
@@ -144,6 +149,11 @@ p {
 
 .scrape-new {
   cursor: pointer;
+}
+
+.unsave-article .notes {
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 footer {

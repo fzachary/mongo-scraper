@@ -1,14 +1,21 @@
-module.exports = (router) => {
+// DEPENDENCIES ==========================
+const router = require('express').Router();
 
+// ROUTES ================================
+module.exports = db => {
+
+    // ROUTE to render the home page
     router.get('/', (req, res) => {
-        // Render the home page
-        res.render('../views/index');
+        res.render('index');
     });
+    // ROUTE to render the saved page
     router.get('/saved', (req, res) => {
-        //Render the saved page
         res.render('saved');
     });
+    // ROUTE to render the 404 page
     router.get('*', (req, res) => {
         res.render("404");
     });
+
+    return router;
 }

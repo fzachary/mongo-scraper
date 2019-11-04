@@ -2,8 +2,10 @@
     <div class="nav-wrapper container">
         <a href="/" class="brand-logo left">Mongo Scraper</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {{#if home}}
             <li><a class="waves-effect waves-light btn scrape-new">Scrape Articles</a></li>
             <li><a class="waves-effect waves-light btn clear">Clear Articles</a></li>
+            {{/if}}
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="{{#if home}}active{{/if}}"><a href="/">Home</a></li>
