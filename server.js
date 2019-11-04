@@ -8,6 +8,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:mongoscraper
 
 // DATABASE
 // Connect to the Mongo DB
+mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // EXPRESS & PORT
